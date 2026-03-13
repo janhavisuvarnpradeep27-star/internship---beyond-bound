@@ -167,16 +167,19 @@ export default function TrustStandards() {
       <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
 
         {/* ── Section header ── */}
-        <div className="text-center mb-14">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.20em] text-[#2a7c7c] mb-3">
+        <div className="text-center mb-14 space-y-4">
+          <span className="inline-block text-[11px] font-semibold uppercase tracking-[0.22em] text-[#2a7c7c] bg-[#2a7c7c]/10 px-4 py-1.5 rounded-full">
             Our Commitment to You
-          </p>
+          </span>
           <h2
             id="trust-heading"
-            className="text-[42px] md:text-[48px] font-bold text-gray-900 leading-[1.15] tracking-tight"
+            className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight tracking-tight"
           >
             Why Trust Beyond Bound?
           </h2>
+          <p className="text-gray-500 text-lg leading-relaxed max-w-xl mx-auto">
+            Every product is held to the highest standards — from sourcing to shipping.
+          </p>
         </div>
 
         {/* ── 3-column trust grid ── */}
@@ -184,19 +187,19 @@ export default function TrustStandards() {
           {trustItems.map((item) => (
             <div
               key={item.id}
-              className="flex flex-col gap-4 bg-white border border-gray-100 rounded-[10px] p-7 shadow-[0_2px_12px_rgba(0,0,0,0.05),0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.09),0_8px_32px_rgba(0,0,0,0.06)] transition-shadow duration-300"
+              className="group flex flex-col gap-4 bg-white border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
             >
               {/* Icon */}
-              <div className={`w-12 h-12 rounded-[10px] flex items-center justify-center shrink-0 ${item.iconBg}`}>
+              <div className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110 ${item.iconBg}`}>
                 {item.icon}
               </div>
 
               {/* Text */}
-              <div>
-                <h3 className="text-[17px] font-bold text-gray-900 leading-snug mb-2">
+              <div className="space-y-1.5">
+                <h3 className="text-[17px] font-bold text-gray-900 leading-snug">
                   {item.title}
                 </h3>
-                <p className="text-[15px] text-gray-500 leading-relaxed">
+                <p className="text-[14px] text-gray-500 leading-relaxed">
                   {item.description}
                 </p>
               </div>
@@ -205,13 +208,18 @@ export default function TrustStandards() {
         </div>
 
         {/* ── Bottom CTA strip ── */}
-        <div className="mt-14 flex flex-col sm:flex-row items-center justify-between gap-6 bg-[#f5f4f1] rounded-[10px] px-8 py-6">
-          <p className="text-[16px] text-gray-700 font-medium text-center sm:text-left">
-            Questions about our quality standards or ingredients?
-          </p>
+        <div className="mt-14 flex flex-col sm:flex-row items-center justify-between gap-6 bg-linear-to-r from-[#2a7c7c]/8 via-[#2a7c7c]/5 to-transparent border border-[#2a7c7c]/15 rounded-2xl px-8 py-7">
+          <div className="space-y-1 text-center sm:text-left">
+            <p className="text-gray-900 font-semibold text-[17px]">
+              Questions about our quality standards?
+            </p>
+            <p className="text-gray-500 text-sm leading-relaxed">
+              Our team is happy to walk you through every certification and ingredient.
+            </p>
+          </div>
           <a
             href="/contact"
-            className="shrink-0 inline-flex items-center gap-2 bg-[#2a7c7c] hover:bg-[#1e5f5f] text-white text-[14px] font-semibold px-6 py-3 rounded-[10px] transition-colors duration-200"
+            className="shrink-0 inline-flex items-center gap-2 bg-[#2a7c7c] hover:bg-[#1e5f5f] hover:scale-105 active:scale-95 text-white text-[14px] font-semibold px-6 py-3 rounded-xl shadow-sm hover:shadow-md transition-all duration-200"
           >
             Talk to Our Team
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
