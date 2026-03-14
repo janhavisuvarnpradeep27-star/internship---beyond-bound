@@ -1,152 +1,120 @@
-interface StepItem {
-  id: string;
-  number: string;
+function StepCard({
+  step,
+  title,
+  description,
+}: {
+  step: string;
   title: string;
   description: string;
-  icon: React.ReactNode;
-  iconBg: string;
-  iconColor: string;
-}
-
-/* ── Icons ──────────────────────────────────────────────────── */
-const SparkIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true">
-    <path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" />
-  </svg>
-);
-
-const PulseIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true">
-    <path d="M22 12h-4l-3 7-4-14-3 7H2" />
-  </svg>
-);
-
-const TargetIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true">
-    <circle cx="12" cy="12" r="9" />
-    <circle cx="12" cy="12" r="5" />
-    <circle cx="12" cy="12" r="1.5" fill="currentColor" />
-  </svg>
-);
-
-/* ── Data ───────────────────────────────────────────────────── */
-const steps: StepItem[] = [
-  {
-    id: "activate-pathway",
-    number: "01",
-    title: "Activates Metabolic Pathway",
-    description:
-      "Berberine triggers AMPK, your cellular energy sensor that regulates glucose uptake and keeps metabolism running efficiently.",
-    icon: <SparkIcon />,
-    iconBg: "bg-teal-50",
-    iconColor: "text-teal-600",
-  },
-  {
-    id: "liver-regulation",
-    number: "02",
-    title: "Supports Liver Glucose Regulation",
-    description:
-      "Reduces excess glucose production in the liver while improving insulin receptor sensitivity for balanced blood sugar.",
-    icon: <PulseIcon />,
-    iconBg: "bg-emerald-50",
-    iconColor: "text-emerald-600",
-  },
-  {
-    id: "cellular-utilization",
-    number: "03",
-    title: "Enhances Cellular Glucose Utilization",
-    description:
-      "Increases glucose transport into cells, helping maintain healthy blood sugar levels throughout the day.",
-    icon: <TargetIcon />,
-    iconBg: "bg-cyan-50",
-    iconColor: "text-cyan-600",
-  },
-];
-
-/* ── Connector line between steps ───────────────────────────── */
-function StepConnector() {
+}) {
   return (
-    <div className="hidden sm:flex justify-start pl-[23px] h-8">
-      <div className="w-0.5 h-full bg-linear-to-b from-[#2a7c7c]/30 to-[#2a7c7c]/10 rounded-full" />
-    </div>
+    <article className="h-[350px] bg-[#F0F0F0]/35 backdrop-blur-[20px] border border-[#DEDEDE]/50 rounded-[8px] p-[48px] flex flex-col justify-between">
+      <h3 className="text-[50px] leading-none text-[#3F3F3F]">{step}</h3>
+      <div className="w-full max-w-[389px] flex flex-col gap-[10.34px]">
+        <p className="text-[#0D7377] font-semibold text-[24px] leading-[32.31px] tracking-[-0.26px]">{title}</p>
+        <p className="text-[#545454] text-[18px] leading-[25.2px] tracking-[0px]">{description}</p>
+      </div>
+    </article>
   );
 }
 
-/* ── Main export ────────────────────────────────────────────── */
 export default function HowItWorks() {
   return (
-    <section
-      aria-labelledby="how-it-works-heading"
-      className="w-full bg-gray-50 py-20"
-    >
-      <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
-
-        {/* ── Header ── */}
-        <div className="text-center mb-14 space-y-4">
-          <span className="inline-block text-[11px] font-semibold uppercase tracking-[0.22em] text-[#2a7c7c] bg-[#2a7c7c]/10 px-4 py-1.5 rounded-full">
-            The Science
-          </span>
-          <h2
-            id="how-it-works-heading"
-            className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight tracking-tight"
-          >
-            How It Works
+    <section aria-labelledby="how-it-works-heading" className="w-full bg-[#f3f4f4] py-20">
+      <div className="w-full max-w-[1558px] mx-auto px-4 md:px-6">
+        <div className="text-center mb-12">
+          <h2 id="how-it-works-heading" className="text-4xl md:text-5xl tracking-tight text-gray-900">
+            How it works
           </h2>
-          <p className="text-gray-500 text-lg leading-relaxed max-w-xl mx-auto">
-            A clinically validated 3-step metabolic mechanism — backed by over 200 peer-reviewed studies.
-          </p>
         </div>
 
-        {/* ── Steps ── */}
-        <div className="max-w-3xl mx-auto">
-          {steps.map((step, idx) => (
-            <div key={step.id}>
-              <article className="group flex items-start gap-5 md:gap-7 bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-1 hover:bg-gray-50 p-6 md:p-7 transition-all duration-300">
+        <div className="space-y-3 max-w-[1440px] mx-auto">
+          {/* Top row */}
+          <div className="grid grid-cols-1 lg:grid-cols-[604px_minmax(0,1fr)] gap-3">
+            {/* Step 1 + Step 2 column */}
+            <div className="flex flex-col gap-3">
+              <StepCard
+                step="Step 1"
+                title="Activates Metabolic Pathway"
+                description="Berberine triggers AMPK, your cellular energy sensor 1"
+              />
+              <StepCard
+                step="Step 2"
+                title="Supports Liver Glucose Regulation"
+                description="Reduces excess glucose production in the liver while improving insulin receptor sensitivity"
+              />
+            </div>
 
-                {/* Step number circle */}
-                <div className="shrink-0 w-12 h-12 rounded-full bg-[#2a7c7c] text-white flex items-center justify-center text-sm font-bold tracking-wide shadow-sm">
-                  {step.number}
-                </div>
+            {/* Step 3 big card */}
+            <article className="relative bg-[#f6f6f6] border border-gray-200 rounded-[8px] p-8 md:p-12 min-h-[620px] lg:min-h-[712px] overflow-hidden">
+              <h3 className="text-[36px] leading-none text-gray-700 mb-3">Step 3</h3>
+              <div className="space-y-2 max-w-[95%]">
+                <p className="text-[#0f7f87] font-semibold text-[24px] leading-tight">Enhances Cellular Glucose Utilization</p>
+                <p className="text-gray-600 text-[18px] leading-relaxed">
+                  Increases glucose transport into cells, helping maintain healthy blood sugar levels
+                </p>
+              </div>
 
-                {/* Icon + Text */}
-                <div className="flex-1 space-y-2">
-                  <div className="flex items-center gap-3">
-                    <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${step.iconBg} ${step.iconColor}`}>
-                      {step.icon}
-                    </div>
-                    <h3 className="text-xl md:text-2xl font-semibold text-gray-900 leading-tight tracking-tight">
-                      {step.title}
-                    </h3>
-                  </div>
-                  <p className="text-gray-500 leading-relaxed pl-12">
-                    {step.description}
+              <img
+                src="/hiw-doctor.png"
+                alt="Doctor portrait"
+                loading="lazy"
+                decoding="async"
+                className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[280px] md:w-[310px] lg:w-[330px] object-contain"
+              />
+
+              <img
+                src="/hiw-label.png"
+                alt="Doctor Approved"
+                loading="lazy"
+                decoding="async"
+                className="absolute bottom-20 left-10 w-[180px] md:w-[220px] lg:w-[245px] object-contain"
+              />
+            </article>
+          </div>
+
+          {/* Bottom row */}
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_662px] gap-3">
+            <article className="relative bg-[#f6f6f6] border border-gray-200 rounded-[8px] overflow-hidden min-h-[280px] lg:min-h-[350px]">
+              <img
+                src="/hiw-bottom-image.png"
+                alt="Clinical validation visual"
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute left-6 right-6 bottom-6 max-w-[669px] h-[255px] rounded-[12px] p-6 flex items-end bg-black/15 backdrop-blur-[2px]">
+                <p className="text-white text-[50px] leading-[1.12]">
+                  A clinically validated
+                  <br />
+                  mechanism broken down into
+                  <br />
+                  three simple steps
+                </p>
+              </div>
+            </article>
+
+            <article className="h-[350px] bg-[#F0F0F0]/35 backdrop-blur-[20px] border border-[#DEDEDE]/50 rounded-[8px] p-[48px]">
+              <div className="w-full max-w-[556px] h-full flex flex-col gap-[118px]">
+                <div className="w-full max-w-[556px] min-h-[51px]">
+                  <p className="text-[#545454] text-[18px] leading-[25.2px] font-medium tracking-[0px]">
+                    Backed by 200+ peer-reviewed studies on berberine&apos;s metabolic effects
                   </p>
                 </div>
 
-              </article>
-              {idx < steps.length - 1 && <StepConnector />}
-            </div>
-          ))}
+                <a
+                  href="#"
+                  className="inline-flex w-[241.17px] items-center justify-center gap-[12.5px] bg-[#0D7377] hover:bg-[#0b676e] text-white text-[18px] font-semibold px-[16.24px] py-[23.74px] rounded-[10.6px] shadow-[0_0_9.5px_rgba(0,0,0,0.25)] transition-all duration-200 hover:scale-[1.02]"
+                >
+                  Get Started
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+          </div>
         </div>
-
-        {/* ── Bottom CTA ── */}
-        <div className="mt-16 text-center space-y-6">
-          <p className="text-gray-600 text-lg leading-relaxed">
-            Backed by{" "}
-            <span className="font-bold text-gray-900">200+ peer-reviewed studies</span>{" "}
-            on berberine&apos;s metabolic effects
-          </p>
-          <a
-            href="#"
-            className="inline-flex items-center gap-2 bg-[#2a7c7c] hover:bg-[#1e5f5f] hover:scale-105 active:scale-95 text-white text-lg font-semibold px-9 py-4 rounded-xl shadow-sm hover:shadow-lg transition-all duration-200"
-          >
-            Get Started
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </a>
-        </div>
-
       </div>
     </section>
   );

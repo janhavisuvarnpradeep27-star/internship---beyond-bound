@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -9,7 +10,7 @@
   --color-brand-green: #27ae60;
   --color-brand-off-white: #f8f9fa;
   --font-family-sans: "Inter", "Segoe UI", system-ui, sans-serif;
-  --font-family-serif: "Playfair Display", Georgia, serif;
+  --font-family-serif: "Bree Serif", Georgia, serif;
 }
 
 *,
@@ -34,5 +35,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: "Bree Serif", Georgia, serif;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+  font-stretch: normal;
 }

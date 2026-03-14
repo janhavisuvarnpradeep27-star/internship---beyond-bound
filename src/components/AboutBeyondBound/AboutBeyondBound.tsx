@@ -5,12 +5,6 @@ const features = [
   { icon: "💊", label: "No Artificial Additives" },
 ];
 
-const stats = [
-  { value: "10K+", label: "Happy Customers" },
-  { value: "4.8★", label: "Average Rating" },
-  { value: "200+", label: "Studies Backed" },
-];
-
 export default function AboutBeyondBound() {
   return (
     <section
@@ -26,26 +20,13 @@ export default function AboutBeyondBound() {
             <div className="absolute inset-0 rounded-3xl bg-[radial-gradient(circle_at_center,rgba(42,124,124,0.13),transparent_70%)]" />
             <div className="relative w-full rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 min-h-[380px] lg:min-h-[480px]">
               <img
-                src="/glycomics-bottle.png"
-                alt="Beyond Bound Glycomics supplement bottle"
+                src="/about-beyond-bound.png"
+                alt="Beyond Bound product bottle lineup"
                 loading="lazy"
                 decoding="async"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                style={{ objectPosition: "50% 42%" }}
+                style={{ objectPosition: "50% 38%" }}
               />
-            </div>
-
-            {/* Floating stat pills */}
-            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 flex gap-3 flex-wrap justify-center px-4">
-              {stats.map((s) => (
-                <div
-                  key={s.label}
-                  className="flex flex-col items-center bg-white border border-gray-100 shadow-md rounded-xl px-5 py-3 min-w-[90px]"
-                >
-                  <span className="text-xl font-bold text-[#2a7c7c] leading-none">{s.value}</span>
-                  <span className="text-[11px] text-gray-500 mt-0.5 text-center">{s.label}</span>
-                </div>
-              ))}
             </div>
           </div>
 
